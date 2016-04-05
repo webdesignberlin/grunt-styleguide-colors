@@ -37,50 +37,47 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Currently no Options
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Basic Usage
+Define a Source File with a scss Map like this:
+
+```scss
+/* <@colors */
+$colors: (
+    /// Color Black
+    /// @group Colors
+    /// @type Color
+    'color-definition__black': #040d13,
+    /// Color White
+    /// @group Colors
+    /// @type Color
+    'color-definition__white': #ffffff,
+    /// Color Gray
+    /// @group Colors
+    /// @type Color
+    'color-definition__gray': #9e9e9e
+);
+/* colors@> */
+```
+
+`/* <@colors */` and `/* colors@> */` defines the start- and endpoint of the color map. 
+Now you can add this Sourcefile to the Gruntfile Config and define an html Outputfile.
 
 ```js
 grunt.initConfig({
   styleguide_colors: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      'test/app/templates/_sg-colors.html': ['test/app/styles/_variables.scss']
+    }
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  styleguide_colors: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+Now you can run the Script with `grunt styleguide_colors`.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
