@@ -25,12 +25,13 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      tests: ['test/app/templates/_sg-colors.html']
     },
 
     // Configuration to be run (and then tested).
     styleguide_colors: {
       custom_options: {
+        options: {},
         files: {
           'test/app/templates/_sg-colors.html': ['test/app/styles/_variables.scss']
         }
