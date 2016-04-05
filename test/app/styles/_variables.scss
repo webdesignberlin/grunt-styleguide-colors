@@ -1,0 +1,77 @@
+/**
+ * + Project variables
+ * Main Variables for Project
+ *
+ * @author mg, fh
+ */
+
+$debug-local: false;
+
+/* <@colors */
+$colors: (
+    /// Color Black
+    /// @group Colors
+    /// @type Color
+    'color-definition__black': #040d13,
+    /// Color White
+    /// @group Colors
+    /// @type Color
+    'color-definition__white': #ffffff,
+    /// Color Gray
+    /// @group Colors
+    /// @type Color
+    'color-definition__gray': #9e9e9e,
+    /// Color Gray Light
+    /// @group Colors
+    /// @type Color
+    'color-definition__gray--light': #ebeef2,
+    /// Color Dark Gray
+    /// @group Colors
+    /// @type Color
+    'color-definition__gray--dark': #292929,
+    /// Color Blue
+    /// @group Colors
+    /// @type Color
+    'color-definition__blue': #00a2db
+);
+/* colors@> */
+
+/// Color Foreground
+/// @group Colors
+/// @require $color-definition__black
+$color-foreground:                  map-get($colors, color-definition__black);
+/// Color Background
+/// @group Colors
+/// @require$color-definition__white
+$color-background:                  map-get($colors, color-definition__white);
+/// Color Primary
+/// @group Colors
+/// @require$color-definition__blue
+$color-primary:                  map-get($colors, color-definition__blue);
+/* = Colors */
+
+
+/**
+ * + Typo
+ */
+$font-stack-sansserif:          'Open Sans', sans-serif;
+$font-stack-normal:             $font-stack-sansserif;
+
+$font-stack-highlight:          'klavika-web', sans-serif;
+$font-stack-highlight--bold:    $font-stack-highlight;
+$font-stack-highlight--thin:    $font-stack-highlight;
+
+$font-size-root:                16px !default;
+
+$font-size-normal:              16px !default;
+$font-size-small:               $font-size-normal / 1.2 !default;
+
+$line-height-normal:            1.5625 !default;
+/* = Typo */
+
+/**
+ * Spacing
+ */
+$spacing-normal:                30px !default;
+$spacing-small:                 $spacing-normal / 2 !default;
+//$spacing-large:                 43px !default;
