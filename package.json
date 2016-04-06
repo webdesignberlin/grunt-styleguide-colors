@@ -1,7 +1,7 @@
 {
   "name": "grunt-styleguide-colors",
   "description": "generate html markup for display project color variables",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/webdesignberlin/grunt-styleguide-colors",
   "author": {
     "name": "Michael Gerstmann",
