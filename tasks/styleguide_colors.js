@@ -10,14 +10,16 @@
 
 module.exports = function(grunt) {
 
+  // generate markup via color definition file(s)
+  var getMarkup = require('../generatemarkup');
+  
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('styleguide_colors', 'generate html markup for display project color variables', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      separator: ','
     });
 
     // Iterate over all specified file groups.
@@ -36,48 +38,8 @@ module.exports = function(grunt) {
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(options.separator));
 
-
-      // generate markup via color definition file(s)
-      var getMarkup = function () {
-        var typeObj = {
-              blockRegex: /\/\*\s?<@colors*(\S*)(\n|\r|.)*?\s?colors@>\s?\*\//igm,
-              mapItemRegex: /\'([a-z0-9-_]-*)+\':\s?#[a-fA-F0-9]{3,6}/g,
-              html: function (key, value) {
-                return '\t<div class="sg-colors__definition">\n' +
-                    '\t\t<div class="sg-colors__item" style="background: ' + value + ';">' +
-                    '\t\t</div>\n' +
-                    '\t\t<b>' + key + ':</b> ' + value + '\n' +
-                    '\t</div>\n';
-              }
-            },
-            html = '<!-- Generated via command line: grunt styleguide_colors -->\n<section class="sg-colors">\n<h1>Colors</h1>\n',
-            map,
-            string;
-
-        map = src.match(typeObj.blockRegex)[0];
-        map = map.match(typeObj.mapItemRegex);
-
-
-        for(var i = 0, len = map.length; i < len; i += 1) {
-          string = map[i].replace(/\s/g, '');
-          string = string.split(':');
-
-          html += typeObj.html(string[0], string[1]);
-        }
-
-
-        html += '</section>\n';
-
-
-        return html;
-      };
-
-      // Handle options.
-      src += options.punctuation;
-
-      // Write the destination file with generated html.
-      grunt.file.write(f.dest, getMarkup());
-
+      // Write the destination file.
+      grunt.file.write(f.dest, getMarkup(src));
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
