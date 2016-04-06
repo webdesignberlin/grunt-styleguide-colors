@@ -2,6 +2,8 @@
 
 > generate html markup for display project color variables
 
+[![Build Status](https://travis-ci.org/webdesignberlin/grunt-styleguide-colors.svg?branch=master)](https://travis-ci.org/webdesignberlin/grunt-styleguide-colors)
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
