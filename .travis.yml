@@ -2,6 +2,14 @@ language: node_js
 node_js:
 - 4.4.2
 before_script:
-  - npm install -g grunt
+- npm install -g grunt
 script:
-  - npm test
+- npm test
+deploy:
+  provider: npm
+  email: guten-tag@seiler-gerstmann.de
+  api_key:
+    secure: WZm4D8YlgRm0l1c6QZG1KOIlZy9/xZ+3LKU6PBAjJue2TLP4xbJA18udpK0PghnxuBdTNvNMxLGJng7bdwh6BVPIJO94tK/46ur+CeRQuKpPSLXbDOhjo3HS9GDx8lg0n57VRKhPEk2JzMgPhGsFEY9fRtEL5Kkx+Av643nbfR3wwun+JyaJEdVnf3JxVJgF75QERKyMzXiameTDEZGTH7KaJj7dVKzeYmEH0pOVEM5v2tY8MZtWeJGWlETQsiuoeTX/mCSHiq+1AaX4sBlmiLiW4QS9kA9C4AyXpb5JORLJLlNKnrlir3ZvdcCv4Io4DgOGz7UrenHArWG5lemZgfIJ7TWY44LgMZUd0ePHx7KIGfsIYWOvxzRySLwebx5jLrBdv0jHd80I6bhae2aJTwdnOns3MUJKbdlVvDuH+egvO206NFCLHexvRwe6G0NrUXjY0lmGhG/ttpSR6dOfdL73U8sMkSiebMVbUvx4JtW30hkeyxsCYVNUZhLPS3tOWQQcMY0coNJDhq7DPvuPWFE+WCU68A4MYGfzxFn7VpHc44K/t4KGuN8BGfNhPEmH6i3VX4uOdPjrdL8zD0X9cqaQyb6j84lSassu4/wzHPVJQBqKMC0HVO2mGqxk4HbxvHMMLXTH0mEqkGCiHAM5HwFKodIy2wKB4Jt2zuFTWhg=
+  on:
+    tags: true
+    repo: webdesignberlin/grunt-styleguide-colors
