@@ -46,7 +46,7 @@ Currently no Options
 ### Usage Examples
 
 #### Basic Usage
-Define a Source File with a scss Map like this:
+Define a source file with a scss map like this:
 
 ```scss
 /* <@colors */
@@ -67,8 +67,8 @@ $colors: (
 /* colors@> */
 ```
 
-`/* <@colors */` and `/* colors@> */` defines the start- and endpoint of the color map. 
-Now you can add this Sourcefile to the Gruntfile Config and define an html Outputfile.
+`/* <@colors */` and `/* colors@> */` define the start- and endpoint of the color map. 
+Add the source file to the Gruntfile config and define an html output file.
 
 ```js
 grunt.initConfig({
@@ -81,7 +81,7 @@ grunt.initConfig({
 });
 ```
 
-Now you can run the Script with `grunt styleguide_colors`.
+Run the Script with `grunt styleguide_colors`
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
