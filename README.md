@@ -2,6 +2,8 @@
 
 > generate html markup for display project color variables
 
+[![npm Package Version](https://img.shields.io/npm/v/grunt-styleguide-colors.svg?style=flat-square)](https://www.npmjs.com/package/grunt-styleguide-colors)
+[![MIT License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](LICENSE)
 [![Build Status](https://travis-ci.org/webdesignberlin/grunt-styleguide-colors.svg?branch=master)](https://travis-ci.org/webdesignberlin/grunt-styleguide-colors)
 
 ## Getting Started
