@@ -1,6 +1,6 @@
 # grunt-styleguide-colors
 
-> generate html markup for display project color variables
+> generate html markup to display a scss color map 
 
 [![npm Package Version](https://img.shields.io/npm/v/grunt-styleguide-colors.svg?style=flat-square)](https://www.npmjs.com/package/grunt-styleguide-colors)
 [![MIT License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](LICENSE)
@@ -85,6 +85,3 @@ Run the Script with `grunt styleguide_colors`
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
