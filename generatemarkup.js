@@ -1,20 +1,22 @@
-module.exports = function(src) {
+module.exports = function(src, options) {
+
+  var _ = require('lodash');
 
   // generate markup via color definition file(s)
   var typeObj = {
         blockRegex: /\/\*\s?<@colors*(\S*)(\n|\r|.)*?\s?colors@>\s?\*\//igm,
         mapItemRegex: /\'([a-z0-9-_]-*)+\':\s?#[a-fA-F0-9]{3,6}/g,
         html: function (key, value) {
-          return '\t<div class="sg-colors__definition">\n' +
-              '\t\t<div class="sg-colors__item" style="background: ' + value + ';">' +
-              '\t\t</div>\n' +
-              '\t\t<b>' + key + ':</b> ' + value + '\n' +
-              '\t</div>\n';
+          return _.template(options.markup.html)({'key': key, 'value': value});
         }
       },
-      html = '<!-- Generated via command line: grunt styleguide_colors -->\n<section class="sg-colors">\n<h1>Colors</h1>\n',
+      html = '<!-- Generated via grunt-styleguide-colors -->\n<'+ options.markup.wrapper +' class="sg-colors">\n',
       map,
       string;
+
+  if(options.headline !== false){
+    html += '<h1>' + options.headline + '</h1>\n'
+  }
 
   map = src.match(typeObj.blockRegex)[0];
   map = map.match(typeObj.mapItemRegex);
@@ -26,7 +28,7 @@ module.exports = function(src) {
     html += typeObj.html(string[0], string[1]);
   }
 
-  html += '</section>\n';
+  html += '</'+ options.markup.wrapper +'>\n';
 
   return html;
 

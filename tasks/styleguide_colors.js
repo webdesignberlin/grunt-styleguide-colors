@@ -19,7 +19,17 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('styleguide_colors', 'generate html markup for display project color variables', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      separator: ','
+      separator: ',',
+      headline: 'Colors',
+      markup: {
+        wrapper: 'section',
+        html: `  
+  <div class="sg-colors__definition">
+    <div class="sg-colors__item" style="background: <%= value %>;"></div>
+    <b><%= key %>:</b> <%= value %>
+  </div>
+  `
+      }
     });
 
     // Iterate over all specified file groups.
@@ -39,7 +49,7 @@ module.exports = function(grunt) {
       }).join(grunt.util.normalizelf(options.separator));
 
       // Write the destination file.
-      grunt.file.write(f.dest, getMarkup(src));
+      grunt.file.write(f.dest, getMarkup(src, options));
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
