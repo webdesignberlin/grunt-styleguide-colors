@@ -31,7 +31,10 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     styleguide_colors: {
       test: {
-        options: {},
+        options: {
+          headline: 'Colors',
+          wrapper: 'section'
+        },
         files: {
           'test/app/templates/_sg-colors.html': ['test/app/styles/_variables.scss']
         }
