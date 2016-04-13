@@ -22,24 +22,13 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+
 /**
  * options for tests
  *
- * @type {{separator: string, headline: string, markup: {wrapper: string, html: string}}}
+ * @type {{separator: string, headline: string, wrapper: string, html: es6 template literal}}
  */
-var options = {
-  separator: ',',
-  headline: 'Colors *test*',
-  markup: {
-    wrapper: 'section',
-    html: `  
-  <div class="sg-colors__definition">
-    <div class="sg-colors__item" style="background: <%= value %>;"></div>
-    <b><%= key %>:</b> <%= value %>
-  </div>
-  `
-  }
-};
+var options = require('../options');
 
 exports.styleguide_colors = {
   'does main file exist': function(test) {
@@ -85,7 +74,7 @@ exports.styleguide_colors = {
     test.ok(result, 'the scss file does not contain a string');
     test.done();
   },
-  'does getmarkup(src, opions) throw any errors': function(test) {
+  'does getmarkup(src, options) throw any errors': function(test) {
     test.expect(1);
 
     var getMarkup = require('../generatemarkup');
@@ -96,14 +85,14 @@ exports.styleguide_colors = {
         getMarkup(src, options);
       }
       catch(e) {
-        throw new Error(e); 
+        throw new Error(e);
       }
     }
 
     test.doesNotThrow(validate);
     test.done();
   },
-  'does getMarkup(src) return a string': function(test) {
+  'does getMarkup(src, options) return a string': function(test) {
     test.expect(1);
 
     var getMarkup = require('../generatemarkup');
