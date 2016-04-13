@@ -41,7 +41,12 @@ grunt.initConfig({
 
 ### Options
 
-Currently no Options
+```js
+options: {
+    headline: string, // set to false to disable headline
+    wrapper: string // section, article, div, ...
+}
+```
 
 ### Usage Examples
 
