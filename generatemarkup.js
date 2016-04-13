@@ -7,10 +7,10 @@ module.exports = function(src, options) {
         blockRegex: /\/\*\s?<@colors*(\S*)(\n|\r|.)*?\s?colors@>\s?\*\//igm,
         mapItemRegex: /\'([a-z0-9-_]-*)+\':\s?#[a-fA-F0-9]{3,6}/g,
         html: function (key, value) {
-          return _.template(options.markup.html)({'key': key, 'value': value});
+          return _.template(options.html)({'key': key, 'value': value});
         }
       },
-      html = '<!-- Generated via grunt-styleguide-colors -->\n<'+ options.markup.wrapper +' class="sg-colors">\n',
+      html = '<!-- Generated via grunt-styleguide-colors -->\n<'+ options.wrapper +' class="sg-colors">\n',
       map,
       string;
 
@@ -28,7 +28,7 @@ module.exports = function(src, options) {
     html += typeObj.html(string[0], string[1]);
   }
 
-  html += '</'+ options.markup.wrapper +'>\n';
+  html += '</'+ options.wrapper +'>\n';
 
   return html;
 
