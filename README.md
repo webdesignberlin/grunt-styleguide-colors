@@ -43,8 +43,8 @@ grunt.initConfig({
 
 ```js
 options: {
-    headline: string, // set to false to disable headline
-    wrapper: string // section, article, div, ...
+  headline: string, // set to false to disable headline
+  wrapper: string // section, article, div, ...
 }
 ```
 
@@ -78,7 +78,10 @@ Add the source file to the Gruntfile config and define an html output file.
 ```js
 grunt.initConfig({
   styleguide_colors: {
-    options: {},
+    options: {
+      headline: 'All my colors',
+      wrapper: 'article'
+    },
     files: {
       'test/app/templates/_sg-colors.html': ['test/app/styles/_variables.scss']
     }
