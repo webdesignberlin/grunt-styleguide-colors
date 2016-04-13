@@ -12,25 +12,14 @@ module.exports = function(grunt) {
 
   // generate markup via color definition file(s)
   var getMarkup = require('../generatemarkup');
+  var defaultOptions = require('../options');
   
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('styleguide_colors', 'generate html markup for display project color variables', function() {
     // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      separator: ',',
-      headline: 'Colors',
-      markup: {
-        wrapper: 'section',
-        html: `  
-  <div class="sg-colors__definition">
-    <div class="sg-colors__item" style="background: <%= value %>;"></div>
-    <b><%= key %>:</b> <%= value %>
-  </div>
-  `
-      }
-    });
+    var options = this.options(defaultOptions);
 
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
