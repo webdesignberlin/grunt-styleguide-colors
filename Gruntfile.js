@@ -33,7 +33,8 @@ module.exports = function(grunt) {
       test: {
         options: {
           headline: 'Colors',
-          wrapper: 'section'
+          wrapper: 'section',
+          template: 'template.html'
         },
         files: {
           'test/app/templates/_sg-colors.html': ['test/app/styles/_variables.scss']
