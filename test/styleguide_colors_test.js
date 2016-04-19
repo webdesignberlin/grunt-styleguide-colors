@@ -26,9 +26,10 @@ var grunt = require('grunt');
 /**
  * options for tests
  *
- * @type {{separator: string, headline: string, wrapper: string, html: es6 template literal}}
+ * @type {{separator: string, headline: string, wrapper: string, html: string -path to template}}
  */
 var options = require('../options');
+
 
 exports.styleguide_colors = {
   'does main file exist': function(test) {
@@ -93,21 +94,22 @@ exports.styleguide_colors = {
     test.done();
   },
   'does getMarkup(src, options) return a string': function(test) {
-    test.expect(1);
+     test.expect(1);
 
-    var getMarkup = require('../generatemarkup');
-    var src = grunt.file.read('test/app/styles/_variables.scss');
-    var html = getMarkup(src, options);
+     var getMarkup = require('../generatemarkup');
+     var src = grunt.file.read('test/app/styles/_variables.scss');
+     var html;
+     var result;
 
-    var result = true;
-    try {  
-       result = typeof html === 'string';
-    }
-    catch(e) {
-      result = false;
-    }
+    try {
+         html = getMarkup(src, options);
+     }
+     catch(e) {
+       result = false;
+     }
+     result = typeof html === 'string';
 
-    test.ok(result, 'no output generated');
-    test.done();
+     test.ok(result, 'no output generated');
+     test.done();
   }
 };
