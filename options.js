@@ -2,7 +2,7 @@ var options = {
   separator: ',',
   headline: 'Colors',
   wrapper: 'section',
-  template: 'template.html'
+  template: ''
 };
 
 module.exports = options;

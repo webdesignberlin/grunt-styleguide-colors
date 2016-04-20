@@ -3,6 +3,11 @@ module.exports = function(src, options) {
   var _ = require('lodash');
 
   var fs = require('fs');
+
+  if (!options.template) {
+    options.template = __dirname + '/template.html';
+  }
+  
   var markup = fs.readFileSync(options.template);
 
   // generate markup via color definition file(s)
